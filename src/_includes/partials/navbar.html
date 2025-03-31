@@ -1,5 +1,5 @@
 <div class="w-full">
-    <nav class="flex items-center justify-center lg:justify-between flex-wrap p-6 lg:px-0 container mx-auto" x-data="{ isOpen: false }" @keydown.escape="isOpen = false"  @click.away="isOpen = false">
+    <nav class="flex items-center justify-between flex-wrap p-6 container mx-auto" x-data="{ isOpen: false }" @keydown.escape="isOpen = false" @click.away="isOpen = false">
         <!--Logo etc-->
         <div class="flex items-center">
             <a href="/" class="text-indigo-500 font-bold text-lg">
@@ -21,7 +21,7 @@
 
                 <ul class="pt-6 lg:pt-0 list-reset lg:flex justify-end flex-1 items-center">
                     {% for item in navigation.items %}
-                        <li class="nav__item mr-3">
+                        <li class="nav__item">
                             <a @click="isOpen = false" class="text-ml inline-block text-gray-500 no-underline hover:text-indigo-500 py-2 px-4" href="{{ item.url }}">{{ item.text }}</a>
                         </li>
                     {% endfor %}
