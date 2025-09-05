@@ -4,6 +4,76 @@
 
 /*Your Custom CSS Goes here*/
 
+/* Dark mode styles */
+:root {
+  --bg-primary: white;
+  --bg-secondary: #f7fafc;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --text-accent: #5a67d8;
+  --border-color: #e2e8f0;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --text-primary: #f7fafc;
+  --text-secondary: #cbd5e0;
+  --text-accent: #667eea;
+  --border-color: #4a5568;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Update existing styles to use CSS variables */
+.nav__item a {
+  color: var(--text-secondary);
+}
+
+.nav__item a:hover {
+  color: var(--text-accent);
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+  background: transparent;
+  border: 2px solid var(--border-color);
+  border-radius: 9999px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-secondary);
+  transform: scale(1.05);
+}
+
+.theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: var(--text-primary);
+}
+
+/* Hide inactive theme icon */
+[data-theme="dark"] .sun-icon {
+  display: none;
+}
+
+[data-theme="light"] .moon-icon,
+html:not([data-theme]) .moon-icon {
+  display: none;
+}
+
 h1 {
   @apply text-4xl tracking-tighter mb-3 text-center lg:text-7xl;
 }
